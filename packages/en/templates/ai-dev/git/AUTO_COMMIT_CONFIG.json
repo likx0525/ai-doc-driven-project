@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "mode": "manual_suggest",
+  "allow_auto_stage": false,
+  "allow_auto_commit": false,
+  "allow_auto_push": false,
+  "require_checks": true,
+  "checks": [
+    "ai_doc_impact",
+    "thread_coordination",
+    "architecture"
+  ],
+  "max_files_per_commit": 50,
+  "disallow_branches": [
+    "main",
+    "master",
+    "production",
+    "prod",
+    "release"
+  ],
+  "allow_protected_branch_commit": false,
+  "allow_skip_checks": false,
+  "protected_paths": [
+    ".ai-secrets/**",
+    ".env",
+    ".env.*",
+    "*.pem",
+    "*.key",
+    "*.p12",
+    "*.pfx",
+    "*.kubeconfig",
+    "**/id_rsa",
+    "**/id_ed25519",
+    "logs/**/*.log"
+  ]
+}

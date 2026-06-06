@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ai-doc-driven-project manifest",
+  "type": "object",
+  "required": [
+    "skill_name",
+    "skill_version",
+    "skill_revision_time",
+    "root_files",
+    "copy_trees"
+  ],
+  "properties": {
+    "skill_name": {
+      "const": "ai-doc-driven-project"
+    },
+    "skill_version": {
+      "type": "string"
+    },
+    "skill_revision_time": {
+      "type": "string"
+    },
+    "copy_trees": {
+      "type": "array"
+    },
+    "update_policy": {
+      "type": "object"
+    }
+  }
+}

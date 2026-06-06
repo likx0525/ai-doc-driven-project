@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DOC_UPDATE_TRIGGERS",
+  "type": "object",
+  "required": [
+    "version",
+    "triggers"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "triggers": {
+      "type": "object"
+    }
+  }
+}

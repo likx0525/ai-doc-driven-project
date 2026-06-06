@@ -1,0 +1,5 @@
+# Codex project configuration for ai-doc-driven-project governance.
+# Keep subagent fan-out predictable. Root session starts at depth 0.
+[agents]
+max_threads = 4
+max_depth = 1

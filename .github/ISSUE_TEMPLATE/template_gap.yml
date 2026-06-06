@@ -1,0 +1,16 @@
+name: Template gap
+description: Report a missing or weak project-governance template.
+title: "template-gap: "
+labels: [documentation, templates]
+body:
+  - type: textarea
+    id: gap
+    attributes:
+      label: Gap
+      description: Which generated document, rule, or template is insufficient?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior

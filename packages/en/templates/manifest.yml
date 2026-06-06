@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "skill_name": "ai-doc-driven-project",
+  "skill_version": "0.3.4",
+  "skill_revision_time": "2026-06-06T04:45:00+08:00",
+  "notes": "JSON-compatible YAML parsable by the Python standard json module. AGENTS.md revision-time is the skill package revision time, not the target-project application time.",
+  "root_files": [
+    {
+      "source": "templates/AGENTS.md",
+      "target": "AGENTS.md",
+      "merge_strategy": "section_merge"
+    }
+  ],
+  "copy_trees": [
+    {
+      "source": "templates/ai-dev",
+      "target": "docs/ai-dev"
+    },
+    {
+      "source": "templates/architecture",
+      "target": "docs/architecture"
+    },
+    {
+      "source": "templates/codex",
+      "target": "docs/codex"
+    },
+    {
+      "source": "templates/product",
+      "target": "docs/product"
+    },
+    {
+      "source": "templates/business",
+      "target": "docs/business"
+    },
+    {
+      "source": "templates/development",
+      "target": "docs/development"
+    },
+    {
+      "source": "templates/data",
+      "target": "docs/data"
+    },
+    {
+      "source": "templates/quality",
+      "target": "docs/quality"
+    },
+    {
+      "source": "templates/security",
+      "target": "docs/security"
+    },
+    {
+      "source": "templates/integrations",
+      "target": "docs/integrations"
+    },
+    {
+      "source": "templates/observability",
+      "target": "docs/observability"
+    },
+    {
+      "source": "templates/env",
+      "target": "docs/env"
+    },
+    {
+      "source": "templates/test",
+      "target": "docs/test"
+    },
+    {
+      "source": "templates/manual",
+      "target": "docs/manual"
+    },
+    {
+      "source": "templates/deploy",
+      "target": "docs/deploy"
+    },
+    {
+      "source": "templates/artifacts",
+      "target": "docs/artifacts"
+    },
+    {
+      "source": "templates/logs",
+      "target": "logs"
+    },
+    {
+      "source": "templates/scripts",
+      "target": "scripts"
+    },
+    {
+      "source": "templates/codex-agents",
+      "target": ".codex/agents"
+    },
+    {
+      "source": "templates/codex-config",
+      "target": ".codex"
+    }
+  ],
+  "runtime_dirs": [
+    "docs/archive",
+    "docs/ai-dev/thread-check-runs",
+    "logs/samples",
+    ".ai-secrets"
+  ],
+  "local_only_files": [
+    {
+      "target": ".ai-secrets/README.md",
+      "content": "# .ai-secrets\\n\\nThis directory is only for local development or test-environment sensitive information.\\n\\n- Do not commit it.\\n- Do not copy real values into docs/, logs/, reports, screenshots, or final answers.\\n- Do not store production credentials here.\\n- Real values may only be written into *.local.md files under this directory.\\n"
+    },
+    {
+      "target": ".ai-secrets/test-secrets.local.md",
+      "source": "templates/env/TEST_SECRETS_FORMAT.md",
+      "create_from_format": true
+    }
+  ],
+  "gitignore_entries": [
+    ".ai-secrets/",
+    ".ai-secrets/*.local.md",
+    "*.local.secret",
+    "*.local.secrets",
+    ".env",
+    ".env.*",
+    "!.env.example"
+  ],
+  "update_policy": {
+    "generated_safe_replace": [
+      "scripts/ai_doc_impact_check.py",
+      "scripts/thread_coordination_check.py",
+      "scripts/architecture_check.py",
+      ".codex/hooks.json",
+      ".codex/config.toml",
+      "docs/ai-dev/DOC_UPDATE_TRIGGERS.yml",
+      "docs/ai-dev/DOC_UPDATE_TRIGGERS.md",
+      "docs/ai-dev/orchestration/AGENT_ROLE_POLICY.md",
+      "docs/ai-dev/orchestration/CONTEXT_COMPACTION_POLICY.md",
+      "docs/ai-dev/orchestration/WORK_MODE_ROUTING.md",
+      "docs/codex/CODEX_WORK_MODE_SELECTION.md",
+      "docs/codex/CODEX_THREADS.md",
+      "scripts/project_auto_commit.py"
+    ],
+    "section_merge": [
+      "AGENTS.md",
+      "docs/ai-dev/DOCS_INDEX.md",
+      "docs/ai-dev/PROJECT_STATE.md"
+    ],
+    "preserve_only": [
+      "docs/ai-dev/tasks.md",
+      "docs/ai-dev/decisions.md",
+      "docs/ai-dev/requirements.md",
+      "docs/product/PRODUCT_SPEC.md",
+      "docs/business/BUSINESS_RULES.md",
+      "docs/architecture/ARCHITECTURE.md",
+      "docs/architecture/DATA_MODEL.md",
+      "docs/ai-dev/git/AUTO_COMMIT_CONFIG.json"
+    ],
+    "migration_report_dir": "docs/ai-dev/migration-runs"
+  },
+  "language": "en"
+}

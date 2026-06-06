@@ -1,0 +1,1045 @@
+{
+  "schema_version": 1,
+  "version": "0.3.4",
+  "metadata": {
+    "primary_source": "docs/ai-dev/DOC_UPDATE_TRIGGERS.yml",
+    "human_summary": "docs/ai-dev/DOC_UPDATE_TRIGGERS.md",
+    "notes": "JSON-compatible YAML; can be parsed by json without PyYAML."
+  },
+  "triggers": {
+    "codex_entry_change": {
+      "description": "Codex 根入口规则变化；AGENTS.md 是唯一根入口。",
+      "detect": {
+        "paths": [
+          "AGENTS.md"
+        ],
+        "task_types": [
+          "codex_entry_change",
+          "rule_change"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/DOCS_INDEX.md",
+        "docs/ai-dev/RULE_CHANGE_REQUESTS.md"
+      ],
+      "suggested_docs": [
+        "README.md"
+      ]
+    },
+    "new_requirement": {
+      "description": "新增需求或需求范围变化。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/requirements.md",
+          "docs/product/PRODUCT_SPEC.md"
+        ],
+        "task_types": [
+          "new_requirement",
+          "requirement",
+          "feature_request"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/requirements.md",
+        "docs/ai-dev/tasks.md",
+        "docs/ai-dev/TRACEABILITY.md"
+      ],
+      "suggested_docs": [
+        "docs/product/PRODUCT_SPEC.md",
+        "docs/product/USER_FLOWS.md"
+      ]
+    },
+    "requirement_confirmation": {
+      "description": "需求被用户确认或修改为项目事实。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/decisions.md",
+          "docs/ai-dev/PROJECT_STATE.md"
+        ],
+        "task_types": [
+          "requirement_confirmation",
+          "decision"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/requirements.md",
+        "docs/ai-dev/decisions.md",
+        "docs/ai-dev/PROJECT_STATE.md",
+        "docs/ai-dev/TRACEABILITY.md"
+      ]
+    },
+    "user_feedback": {
+      "description": "收到用户反馈、审查反馈或验收反馈。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/feedback.md"
+        ],
+        "task_types": [
+          "user_feedback",
+          "feedback"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/feedback.md",
+        "docs/ai-dev/tasks.md"
+      ],
+      "suggested_docs": [
+        "docs/manual/FAQ.md"
+      ]
+    },
+    "bug_discovery": {
+      "description": "发现缺陷、回归或异常行为。",
+      "detect": {
+        "paths": [
+          "docs/test/bug-reports.md"
+        ],
+        "task_types": [
+          "bug_discovery",
+          "bug_report"
+        ]
+      },
+      "required_docs": [
+        "docs/test/bug-reports.md",
+        "docs/ai-dev/tasks.md",
+        "docs/test/test-cases.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/feedback.md"
+      ]
+    },
+    "bug_fix": {
+      "description": "修复缺陷或回归。",
+      "detect": {
+        "paths": [],
+        "task_types": [
+          "bug_fix"
+        ]
+      },
+      "required_docs": [
+        "docs/test/bug-reports.md",
+        "docs/test/test-runs.md"
+      ],
+      "suggested_docs": [
+        "docs/deploy/CHANGELOG.md",
+        "docs/test/test-cases.md"
+      ]
+    },
+    "feature_completion": {
+      "description": "新功能完成或功能行为实质变化。",
+      "detect": {
+        "paths": [],
+        "task_types": [
+          "feature_completion",
+          "feature"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/tasks.md",
+        "docs/test/test-cases.md",
+        "docs/ai-dev/TRACEABILITY.md"
+      ],
+      "suggested_docs": [
+        "docs/manual/USER_MANUAL.md",
+        "docs/deploy/CHANGELOG.md"
+      ]
+    },
+    "ui_change": {
+      "description": "界面、文案、布局、交互或可视化输出变化。",
+      "detect": {
+        "paths": [
+          "src/**/components/**",
+          "components/**",
+          "pages/**",
+          "docs/product/UI_SPEC.md"
+        ],
+        "task_types": [
+          "ui_change",
+          "ux_change"
+        ]
+      },
+      "required_docs": [
+        "docs/product/UI_SPEC.md",
+        "docs/product/USER_FLOWS.md"
+      ],
+      "suggested_docs": [
+        "docs/manual/USER_MANUAL.md",
+        "docs/artifacts/ARTIFACTS.md"
+      ]
+    },
+    "user_flow_change": {
+      "description": "用户流程、使用路径或端到端场景变化。",
+      "detect": {
+        "paths": [
+          "docs/product/USER_FLOWS.md"
+        ],
+        "task_types": [
+          "user_flow_change"
+        ]
+      },
+      "required_docs": [
+        "docs/product/USER_FLOWS.md",
+        "docs/test/test-cases.md"
+      ],
+      "suggested_docs": [
+        "docs/manual/USER_MANUAL.md"
+      ]
+    },
+    "business_rule_change": {
+      "description": "业务规则、计算规则、校验规则或权限业务含义变化。",
+      "detect": {
+        "paths": [
+          "docs/business/BUSINESS_RULES.md"
+        ],
+        "task_types": [
+          "business_rule_change"
+        ]
+      },
+      "required_docs": [
+        "docs/business/BUSINESS_RULES.md",
+        "docs/ai-dev/decisions.md",
+        "docs/test/test-cases.md"
+      ],
+      "confirmation_required": [
+        "business_owner_or_user"
+      ]
+    },
+    "state_flow_change": {
+      "description": "状态机、生命周期、审批流、订单流等变化。",
+      "detect": {
+        "paths": [
+          "docs/business/STATE_FLOWS.md"
+        ],
+        "task_types": [
+          "state_flow_change"
+        ]
+      },
+      "required_docs": [
+        "docs/business/STATE_FLOWS.md",
+        "docs/architecture/DATA_MODEL.md",
+        "docs/test/test-cases.md"
+      ],
+      "confirmation_required": [
+        "business_owner_or_user"
+      ]
+    },
+    "data_model_change": {
+      "description": "数据模型、schema、字段、索引或持久化结构变化。",
+      "detect": {
+        "paths": [
+          "docs/architecture/DATA_MODEL.md",
+          "db/**",
+          "database/**",
+          "migrations/**",
+          "prisma/**",
+          "schema/**"
+        ],
+        "task_types": [
+          "data_model_change",
+          "schema_change"
+        ]
+      },
+      "required_docs": [
+        "docs/architecture/DATA_MODEL.md",
+        "docs/ai-dev/decisions.md",
+        "docs/data/MIGRATIONS.md"
+      ],
+      "suggested_docs": [
+        "docs/data/DATA_LIFECYCLE.md",
+        "docs/data/BACKUP_RESTORE.md"
+      ],
+      "forbidden_locations": [
+        "docs/**"
+      ],
+      "confirmation_required": [
+        "data_owner_or_user"
+      ]
+    },
+    "data_migration": {
+      "description": "迁移、回填、清洗、导入导出或历史数据解释变化。",
+      "detect": {
+        "paths": [
+          "migrations/**",
+          "scripts/**",
+          "docs/data/MIGRATIONS.md"
+        ],
+        "task_types": [
+          "data_migration"
+        ]
+      },
+      "required_docs": [
+        "docs/data/MIGRATIONS.md",
+        "docs/data/BACKUP_RESTORE.md",
+        "docs/deploy/RELEASE_CHECKLIST.md"
+      ],
+      "confirmation_required": [
+        "data_owner_or_user"
+      ]
+    },
+    "persistence_change": {
+      "description": "新增或修改持久化数据。",
+      "detect": {
+        "paths": [
+          "db/**",
+          "database/**",
+          "migrations/**",
+          "prisma/**",
+          "schema/**"
+        ],
+        "task_types": [
+          "persistence_change"
+        ]
+      },
+      "required_docs": [
+        "docs/data/DATA_LIFECYCLE.md",
+        "docs/data/BACKUP_RESTORE.md"
+      ],
+      "suggested_docs": [
+        "docs/architecture/DATA_MODEL.md"
+      ]
+    },
+    "architecture_change": {
+      "description": "架构、模块边界或依赖方向变化。",
+      "detect": {
+        "paths": [
+          "docs/architecture/**"
+        ],
+        "task_types": [
+          "architecture_change",
+          "refactor"
+        ]
+      },
+      "required_docs": [
+        "docs/architecture/ARCHITECTURE.md",
+        "docs/architecture/MODULES.md",
+        "docs/architecture/MODULE_BOUNDARIES.yml",
+        "docs/architecture/ARCHITECTURE_CHECKLIST.md"
+      ],
+      "suggested_docs": [
+        "docs/architecture/ADR/",
+        "docs/architecture/ARCHITECTURE_DEBT.md"
+      ]
+    },
+    "module_change": {
+      "description": "新增、删除、拆分或合并模块。",
+      "detect": {
+        "paths": [
+          "docs/architecture/MODULES.md",
+          "docs/architecture/MODULE_BOUNDARIES.yml"
+        ],
+        "task_types": [
+          "module_change"
+        ]
+      },
+      "required_docs": [
+        "docs/architecture/MODULES.md",
+        "docs/architecture/MODULE_BOUNDARIES.yml",
+        "docs/development/DEVELOPMENT_GUIDE.md"
+      ],
+      "suggested_docs": [
+        "docs/development/CODE_CONVENTIONS.md"
+      ]
+    },
+    "api_change": {
+      "description": "新增或修改 API、接口契约、SDK 或内部服务契约。",
+      "detect": {
+        "paths": [
+          "docs/development/API_CONTRACTS.md",
+          "api/**",
+          "routes/**",
+          "src/**/api/**",
+          "app/**/api/**"
+        ],
+        "task_types": [
+          "api_change"
+        ]
+      },
+      "required_docs": [
+        "docs/development/API_CONTRACTS.md",
+        "docs/test/test-cases.md"
+      ],
+      "suggested_docs": [
+        "docs/integrations/EXTERNAL_APIS.md"
+      ]
+    },
+    "integration_change": {
+      "description": "新增或修改外部服务、第三方 API 或集成配置。",
+      "detect": {
+        "paths": [
+          "docs/integrations/**",
+          "docs/env/credentials-note.md"
+        ],
+        "task_types": [
+          "integration_change"
+        ]
+      },
+      "required_docs": [
+        "docs/integrations/INTEGRATIONS.md",
+        "docs/integrations/EXTERNAL_APIS.md",
+        "docs/env/credentials-note.md",
+        "docs/test/test-cases.md"
+      ]
+    },
+    "webhook_change": {
+      "description": "新增或修改 Webhook、回调、事件订阅。",
+      "detect": {
+        "paths": [
+          "docs/integrations/WEBHOOKS.md"
+        ],
+        "task_types": [
+          "webhook_change"
+        ]
+      },
+      "required_docs": [
+        "docs/integrations/WEBHOOKS.md",
+        "docs/test/test-cases.md",
+        "docs/security/SECURITY.md"
+      ]
+    },
+    "dependency_change": {
+      "description": "新增、升级、删除依赖或运行时环境依赖变化。",
+      "detect": {
+        "paths": [
+          "package.json",
+          "package-lock.json",
+          "pnpm-lock.yaml",
+          "yarn.lock",
+          "requirements.txt",
+          "pyproject.toml",
+          "poetry.lock",
+          "go.mod",
+          "Cargo.toml",
+          "docs/env/dependencies.md"
+        ],
+        "task_types": [
+          "dependency_change"
+        ]
+      },
+      "required_docs": [
+        "docs/env/dependencies.md",
+        "docs/development/DEPENDENCY_POLICY.md"
+      ]
+    },
+    "performance_change": {
+      "description": "性能、容量、吞吐、延迟、资源占用相关修改。",
+      "detect": {
+        "paths": [
+          "docs/quality/PERFORMANCE.md"
+        ],
+        "task_types": [
+          "performance_change"
+        ]
+      },
+      "required_docs": [
+        "docs/quality/PERFORMANCE.md",
+        "docs/quality/NON_FUNCTIONAL_REQUIREMENTS.md",
+        "docs/test/test-runs.md"
+      ]
+    },
+    "compatibility_change": {
+      "description": "浏览器、平台、版本、设备或向后兼容性变化。",
+      "detect": {
+        "paths": [
+          "docs/quality/COMPATIBILITY.md"
+        ],
+        "task_types": [
+          "compatibility_change"
+        ]
+      },
+      "required_docs": [
+        "docs/quality/COMPATIBILITY.md",
+        "docs/test/test-cases.md"
+      ]
+    },
+    "accessibility_change": {
+      "description": "可访问性、键盘导航、屏幕阅读器或无障碍体验变化。",
+      "detect": {
+        "paths": [
+          "docs/quality/ACCESSIBILITY.md",
+          "docs/product/UI_SPEC.md"
+        ],
+        "task_types": [
+          "accessibility_change"
+        ]
+      },
+      "required_docs": [
+        "docs/quality/ACCESSIBILITY.md",
+        "docs/product/UI_SPEC.md"
+      ]
+    },
+    "permission_change": {
+      "description": "权限、角色、认证授权、访问控制变化。",
+      "detect": {
+        "paths": [
+          "docs/security/PERMISSIONS.md"
+        ],
+        "task_types": [
+          "permission_change",
+          "auth_change"
+        ]
+      },
+      "required_docs": [
+        "docs/security/PERMISSIONS.md",
+        "docs/security/SECURITY.md",
+        "docs/test/test-cases.md"
+      ],
+      "confirmation_required": [
+        "security_owner_or_user"
+      ]
+    },
+    "user_data_change": {
+      "description": "用户数据、隐私数据、采集、处理、保留或删除规则变化。",
+      "detect": {
+        "paths": [
+          "docs/security/PRIVACY.md",
+          "docs/data/DATA_LIFECYCLE.md"
+        ],
+        "task_types": [
+          "user_data_change",
+          "privacy_change"
+        ]
+      },
+      "required_docs": [
+        "docs/security/PRIVACY.md",
+        "docs/data/DATA_LIFECYCLE.md"
+      ],
+      "confirmation_required": [
+        "privacy_or_data_owner"
+      ]
+    },
+    "secret_or_credential_change": {
+      "description": "敏感信息、凭据、secret 策略变化。",
+      "detect": {
+        "paths": [
+          ".ai-secrets/**",
+          "docs/security/**",
+          "docs/env/credentials-note.md",
+          "docs/env/TEST_SECRETS_FORMAT.md"
+        ],
+        "task_types": [
+          "secret_change",
+          "credential_change"
+        ]
+      },
+      "required_docs": [
+        "docs/security/SECRETS_POLICY.md",
+        "docs/env/credentials-note.md",
+        "docs/env/TEST_SECRETS_FORMAT.md"
+      ],
+      "forbidden_locations": [
+        "docs/**",
+        "logs/**",
+        "AGENTS.md",
+        "README.md"
+      ]
+    },
+    "test_execution": {
+      "description": "执行测试、验收、验证或复现。",
+      "detect": {
+        "paths": [
+          "docs/test/test-runs.md"
+        ],
+        "task_types": [
+          "test_execution",
+          "verification"
+        ]
+      },
+      "required_docs": [
+        "docs/test/test-runs.md"
+      ],
+      "suggested_docs": [
+        "docs/test/bug-reports.md",
+        "docs/artifacts/ARTIFACTS.md"
+      ]
+    },
+    "codex_capability_use": {
+      "description": "使用 Codex App 能力、浏览器、Chrome、computer use、automation、skills、artifacts 或图像生成。",
+      "detect": {
+        "paths": [
+          "docs/codex/**",
+          "docs/artifacts/**"
+        ],
+        "task_types": [
+          "codex_capability_use",
+          "artifact_change",
+          "image_generation",
+          "browser_use",
+          "automation_use"
+        ]
+      },
+      "required_docs": [
+        "docs/codex/CODEX_USAGE_LOG.md"
+      ],
+      "suggested_docs": [
+        "docs/artifacts/ARTIFACTS.md",
+        "docs/codex/CODEX_THREADS.md",
+        "docs/ai-dev/orchestration/CONTEXT_COMPACTION_POLICY.md"
+      ]
+    },
+    "worktree_subagent_or_fork": {
+      "description": "使用 worktree、subagents、fork、side conversation 或多线程协作。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/orchestration/**",
+          "docs/ai-dev/concurrency/**",
+          ".codex/agents/**",
+          ".codex/hooks.json"
+        ],
+        "task_types": [
+          "worktree",
+          "subagent",
+          "fork",
+          "side_conversation",
+          "multi_session",
+          "context_compaction",
+          "thread_coordination"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/orchestration/WORK_MODE_ROUTING.md",
+        "docs/ai-dev/orchestration/THREAD_REGISTRY.md",
+        "docs/ai-dev/orchestration/THREAD_HANDOFFS.md",
+        "docs/ai-dev/orchestration/MERGE_POLICY.md",
+        "docs/codex/CODEX_USAGE_LOG.md",
+        "docs/ai-dev/orchestration/AGENT_ROLE_POLICY.md",
+        "docs/ai-dev/orchestration/CONTEXT_COMPACTION_POLICY.md",
+        "docs/ai-dev/orchestration/THREAD_COORDINATION.md",
+        "docs/ai-dev/concurrency/SESSIONS.md"
+      ]
+    },
+    "artifact_change": {
+      "description": "新增或修改 AI 产物、截图、报告、导出文件或生成物索引。",
+      "detect": {
+        "paths": [
+          "docs/artifacts/**"
+        ],
+        "task_types": [
+          "artifact_change",
+          "screenshot",
+          "report"
+        ]
+      },
+      "required_docs": [
+        "docs/artifacts/ARTIFACTS.md"
+      ],
+      "suggested_docs": [
+        "docs/test/test-runs.md",
+        "docs/manual/USER_MANUAL.md"
+      ]
+    },
+    "log_analysis": {
+      "description": "日志分析、脱敏日志样本或运行时异常分析。",
+      "detect": {
+        "paths": [
+          "logs/**",
+          "docs/observability/LOGGING.md"
+        ],
+        "task_types": [
+          "log_analysis"
+        ]
+      },
+      "required_docs": [
+        "docs/observability/LOGGING.md"
+      ],
+      "suggested_docs": [
+        "docs/observability/INCIDENTS.md",
+        "docs/test/bug-reports.md"
+      ],
+      "forbidden_locations": [
+        "logs/**",
+        "docs/**"
+      ]
+    },
+    "incident": {
+      "description": "事故、线上问题、重大故障或恢复过程。",
+      "detect": {
+        "paths": [
+          "docs/observability/INCIDENTS.md"
+        ],
+        "task_types": [
+          "incident"
+        ]
+      },
+      "required_docs": [
+        "docs/observability/INCIDENTS.md",
+        "docs/ai-dev/tasks.md"
+      ],
+      "suggested_docs": [
+        "docs/deploy/CHANGELOG.md",
+        "docs/deploy/ROLLBACK.md"
+      ]
+    },
+    "deployment": {
+      "description": "部署、环境变更或上线操作。",
+      "detect": {
+        "paths": [
+          "docs/deploy/DEPLOYMENT.md",
+          "docs/env/environment.md",
+          "deploy/**",
+          ".github/workflows/**"
+        ],
+        "task_types": [
+          "deployment"
+        ]
+      },
+      "required_docs": [
+        "docs/deploy/DEPLOYMENT.md",
+        "docs/test/test-runs.md"
+      ],
+      "suggested_docs": [
+        "docs/deploy/CHANGELOG.md",
+        "docs/deploy/ROLLBACK.md"
+      ]
+    },
+    "release": {
+      "description": "发布、版本变更、变更日志或发布检查。",
+      "detect": {
+        "paths": [
+          "docs/deploy/RELEASE_CHECKLIST.md",
+          "docs/deploy/CHANGELOG.md",
+          "docs/deploy/VERSIONING.md"
+        ],
+        "task_types": [
+          "release"
+        ]
+      },
+      "required_docs": [
+        "docs/deploy/RELEASE_CHECKLIST.md",
+        "docs/deploy/CHANGELOG.md",
+        "docs/deploy/VERSIONING.md"
+      ]
+    },
+    "manual_update": {
+      "description": "产品手册、FAQ、快速开始或用户帮助文档更新。",
+      "detect": {
+        "paths": [
+          "docs/manual/**"
+        ],
+        "task_types": [
+          "manual_update",
+          "help_docs"
+        ]
+      },
+      "required_docs": [
+        "docs/manual/MANUAL_INDEX.md",
+        "docs/manual/USER_MANUAL.md",
+        "docs/manual/QUICK_START.md",
+        "docs/manual/FAQ.md",
+        "docs/ai-dev/TRACEABILITY.md"
+      ]
+    },
+    "lesson_or_rule_update": {
+      "description": "经验沉淀、规则改进或 AI 工作方式调整。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/LESSONS_LEARNED.md",
+          "docs/ai-dev/RULE_CHANGE_REQUESTS.md",
+          "docs/ai-dev/rules/**"
+        ],
+        "task_types": [
+          "lesson",
+          "rule_update"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/LESSONS_LEARNED.md",
+        "docs/ai-dev/RULE_CHANGE_REQUESTS.md"
+      ],
+      "suggested_docs": [
+        "AGENTS.md",
+        "docs/ai-dev/DOCS_INDEX.md"
+      ]
+    },
+    "multi_session": {
+      "description": "多会话开始、结束、锁定、冲突或同步。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/concurrency/**"
+        ],
+        "task_types": [
+          "multi_session",
+          "lock",
+          "session"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/concurrency/SESSIONS.md",
+        "docs/ai-dev/concurrency/LOCKS.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/concurrency/MERGE_QUEUE.md"
+      ]
+    },
+    "changeset_change": {
+      "description": "changeset 创建、合并、拒绝或队列状态变化。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/changesets/**",
+          "docs/ai-dev/concurrency/MERGE_QUEUE.md"
+        ],
+        "task_types": [
+          "changeset",
+          "merge"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/concurrency/MERGE_QUEUE.md",
+        "docs/ai-dev/tasks.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/DOCS_INDEX.md",
+        "docs/ai-dev/concurrency/CONFLICTS.md"
+      ]
+    },
+    "doc_inventory_change": {
+      "description": "新增、归档、废弃、重命名文档或文档状态变化。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/DOCS_INDEX.md",
+          "docs/archive/**"
+        ],
+        "task_types": [
+          "doc_inventory_change",
+          "new_doc",
+          "archive_doc",
+          "deprecate_doc",
+          "doc_status_change"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/DOCS_INDEX.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/PROJECT_AUDIT.md"
+      ]
+    },
+    "source_code_change": {
+      "description": "源代码、应用代码、库代码、包或服务代码变化。用于兜底提醒测试和任务记录，不推断具体业务语义。",
+      "detect": {
+        "paths": [
+          "src/**",
+          "app/**",
+          "lib/**",
+          "packages/**",
+          "services/**"
+        ],
+        "task_types": [
+          "source_code_change",
+          "code_change"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/tasks.md",
+        "docs/test/test-runs.md"
+      ],
+      "suggested_docs": [
+        "docs/test/test-cases.md",
+        "docs/architecture/ARCHITECTURE.md",
+        "docs/deploy/CHANGELOG.md"
+      ]
+    },
+    "skill_revision_metadata": {
+      "description": "使用 ai-doc-driven-project 初始化、审计或更新项目文档结构，必须更新 AGENTS.md 顶部 ai-skill 元数据注释。",
+      "detect": {
+        "paths": [
+          "AGENTS.md",
+          "docs/ai-dev/DOCS_INDEX.md",
+          "docs/ai-dev/doc-update-runs/**"
+        ],
+        "task_types": [
+          "skill_init",
+          "skill_update",
+          "doc_structure_update",
+          "audit",
+          "init",
+          "update"
+        ]
+      },
+      "required_docs": [
+        "AGENTS.md",
+        "docs/ai-dev/DOCS_INDEX.md",
+        "docs/ai-dev/PROJECT_STATE.md",
+        "docs/ai-dev/doc-update-runs/"
+      ],
+      "suggested_docs": [
+        "README.md",
+        "docs/ai-dev/PROJECT_AUDIT.md"
+      ],
+      "action": "AGENTS.md first line must match: <!-- ai-skill: ai-doc-driven-project skill-version: <version> revision-time: <ISO-8601> -->."
+    },
+    "codex_context_compaction": {
+      "description": "Codex 线程发生 /compact、自动 compact、上下文压缩或压缩后继续工作。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/orchestration/CONTEXT_COMPACTION_POLICY.md",
+          "docs/ai-dev/orchestration/THREAD_REGISTRY.md",
+          "docs/ai-dev/orchestration/THREAD_HANDOFFS.md",
+          "docs/ai-dev/concurrency/SESSIONS.md",
+          "docs/codex/CODEX_THREADS.md"
+        ],
+        "task_types": [
+          "compact",
+          "codex_compaction",
+          "context_compaction",
+          "pre_compact",
+          "post_compact",
+          "new_session",
+          "resume_session"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/orchestration/CONTEXT_COMPACTION_POLICY.md",
+        "docs/ai-dev/orchestration/THREAD_REGISTRY.md",
+        "docs/ai-dev/orchestration/THREAD_HANDOFFS.md",
+        "docs/ai-dev/concurrency/SESSIONS.md",
+        "docs/codex/CODEX_USAGE_LOG.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/tasks.md",
+        "docs/ai-dev/decisions.md",
+        "docs/ai-dev/PROJECT_STATE.md"
+      ],
+      "action": "Track compact_count. At compact_count >= 2 create handoff and prefer /new or /fork before non-trivial work."
+    },
+    "agent_role_policy": {
+      "description": "自定义 Codex agent、subagent 角色边界、主会话协调 agent 或 reviewer/explorer/worker 权限变化。",
+      "detect": {
+        "paths": [
+          ".codex/agents/**",
+          "docs/ai-dev/orchestration/AGENT_ROLE_POLICY.md",
+          "docs/ai-dev/orchestration/SUBAGENTS.md"
+        ],
+        "task_types": [
+          "agent_role",
+          "agent_config",
+          "subagent_policy",
+          "main_session_coordinator",
+          "thread_manager",
+          "merge_coordinator"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/orchestration/AGENT_ROLE_POLICY.md",
+        "docs/ai-dev/orchestration/SUBAGENTS.md",
+        "docs/ai-dev/orchestration/MERGE_POLICY.md",
+        "docs/ai-dev/orchestration/THREAD_HANDOFFS.md"
+      ],
+      "suggested_docs": [
+        "docs/codex/CODEX_SUBAGENTS.md",
+        "docs/codex/CODEX_USAGE_LOG.md"
+      ],
+      "action": "Every .codex/agents/*.toml must define name, description, developer_instructions. Non-main agents cannot directly archive project facts."
+    },
+    "thread_coordination_enforcement": {
+      "description": "线程协调、锁、合并队列、handoff、Codex hooks 或强制校验脚本变化。",
+      "detect": {
+        "paths": [
+          "scripts/thread_coordination_check.py",
+          ".codex/hooks.json",
+          "docs/ai-dev/concurrency/**",
+          "docs/ai-dev/orchestration/THREAD_COORDINATION.md",
+          "docs/ai-dev/orchestration/MERGE_POLICY.md"
+        ],
+        "task_types": [
+          "thread_coordination",
+          "lock_check",
+          "merge_queue",
+          "handoff_check",
+          "codex_hook",
+          "script_enforcement"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/orchestration/THREAD_COORDINATION.md",
+        "docs/ai-dev/orchestration/THREAD_HANDOFFS.md",
+        "docs/ai-dev/orchestration/MERGE_POLICY.md",
+        "docs/ai-dev/concurrency/SESSIONS.md",
+        "docs/ai-dev/concurrency/LOCKS.md",
+        "docs/ai-dev/concurrency/MERGE_QUEUE.md"
+      ],
+      "suggested_docs": [
+        "docs/ai-dev/concurrency/CONFLICTS.md",
+        "docs/ai-dev/thread-check-runs/"
+      ],
+      "action": "Run python scripts/thread_coordination_check.py --strict --record before merge."
+    },
+    "release_package_validation": {
+      "description": "Skill release, package build, runtime artifact cleanup, schema validation, or bilingual package synchronization changed.",
+      "detect": {
+        "task_types": [
+          "release",
+          "package_build",
+          "skill_update",
+          "bilingual_sync"
+        ],
+        "paths": [
+          "bin/**",
+          "tests/**",
+          "schemas/**",
+          "templates/manifest.yml",
+          "templates/codex-config/**"
+        ]
+      },
+      "required_docs": [
+        "README.md",
+        "SKILL.md",
+        "templates/manifest.yml"
+      ],
+      "suggested_docs": [
+        "CHANGELOG.md"
+      ],
+      "confirmation_required": []
+    },
+    "project_auto_commit_policy": {
+      "description": "项目自动提交策略、自动 stage/commit 边界或提交辅助脚本变化。",
+      "detect": {
+        "paths": [
+          "docs/ai-dev/git/AUTO_COMMIT_POLICY.md",
+          "docs/ai-dev/git/AUTO_COMMIT_CONFIG.json",
+          "scripts/project_auto_commit.py",
+          ".gitignore",
+          ".codex/hooks.json"
+        ],
+        "task_types": [
+          "auto_commit",
+          "git_commit",
+          "commit_policy",
+          "version_control"
+        ]
+      },
+      "required_docs": [
+        "docs/ai-dev/git/AUTO_COMMIT_POLICY.md",
+        "docs/ai-dev/git/AUTO_COMMIT_CONFIG.json",
+        "docs/ai-dev/DOCS_INDEX.md",
+        "docs/ai-dev/orchestration/MERGE_POLICY.md"
+      ],
+      "suggested_docs": [
+        "docs/codex/CODEX_WORK_MODE_SELECTION.md",
+        "docs/deploy/CHANGELOG.md"
+      ],
+      "confirmation_required": [
+        "user_or_project_owner_confirmation_before_enabling_local_auto_commit"
+      ],
+      "forbidden_locations": [
+        {
+          "paths": [
+            ".ai-secrets/**",
+            ".env",
+            ".env.*",
+            "*.pem",
+            "*.key",
+            "*.p12",
+            "*.pfx",
+            "*.kubeconfig"
+          ],
+          "reason": "auto-commit must not include local secrets or credential material"
+        }
+      ],
+      "ignore_when": {
+        "task_types": [
+          "init",
+          "template_install"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/scripts/thread_coordination_check.py\" --event SessionStart --hook-json --advisory",
+            "statusMessage": "Checking ai-doc-driven session context policy"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/scripts/thread_coordination_check.py\" --event PreCompact --hook-json --advisory",
+            "statusMessage": "Checking ai-doc-driven compact policy"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/scripts/thread_coordination_check.py\" --event PostCompact --hook-json --advisory",
+            "statusMessage": "Checking ai-doc-driven post-compact policy"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/scripts/thread_coordination_check.py\" --event SubagentStop --hook-json --advisory",
+            "statusMessage": "Checking ai-doc-driven subagent handoff policy"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/scripts/thread_coordination_check.py\" --event Stop --hook-json --advisory",
+            "statusMessage": "Checking ai-doc-driven thread coordination policy"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# AI local secrets and environment files
+.ai-secrets/
+*.local.secret
+*.local.secrets
+*.local.md
+.env
+.env.*
+!.env.example

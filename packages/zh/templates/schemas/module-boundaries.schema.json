@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MODULE_BOUNDARIES",
+  "type": "object",
+  "required": [
+    "modules"
+  ],
+  "properties": {
+    "modules": {
+      "type": "array"
+    },
+    "rules": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

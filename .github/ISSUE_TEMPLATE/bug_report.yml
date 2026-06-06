@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible bug in the skill package or generated files.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "0.3.4"
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction using fake data only
+      description: Do not include credentials, private logs, or proprietary project data.
+    validations:
+      required: true

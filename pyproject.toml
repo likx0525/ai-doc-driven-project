@@ -1,0 +1,14 @@
+[project]
+name = "ai-doc-driven-project-skill"
+version = "0.3.4"
+description = "A Codex-oriented AI documentation governance skill for project initialization, audit, and upgrade."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = [
+  "packages/zh/tests",
+  "packages/en/tests"
+]
+python_files = ["test_*.py"]
+addopts = ["--import-mode=importlib"]

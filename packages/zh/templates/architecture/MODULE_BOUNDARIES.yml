@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "stub",
+  "notes": "JSON-compatible YAML. Fill modules before treating this file as an architecture fact source.",
+  "modules": [],
+  "rules": {
+    "dependency_direction": [],
+    "forbidden_dependencies": [],
+    "shared_modules": []
+  },
+  "checks": {
+    "unknown_source_files": "warn",
+    "enforce_allowed_dependencies": true,
+    "scan_imports_for": ["python", "javascript", "typescript"]
+  },
+  "example_module": {
+    "name": "domain",
+    "description": "核心领域层示例；复制到 modules 后再按项目实际修改。",
+    "paths": ["src/domain/**"],
+    "import_roots": ["domain", "@/domain"],
+    "allowed_dependencies": ["shared"],
+    "forbidden_dependencies": ["infrastructure"],
+    "owners": ["team-or-person"]
+  }
+}
